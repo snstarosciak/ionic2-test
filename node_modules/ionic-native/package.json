@@ -1,0 +1,84 @@
+{
+  "name": "ionic-native",
+  "version": "1.1.1",
+  "description": "Native plugin wrappers for Cordova and Ionic with TypeScript, ES6+, Promise and Observable support",
+  "main": "dist/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "rxjs": "5.0.0-beta.2"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "canonical-path": "0.0.2",
+    "conventional-changelog": "^1.1.0",
+    "cpr": "^1.0.0",
+    "cz-conventional-changelog": "^1.1.5",
+    "dgeni": "^0.4.2",
+    "dgeni-packages": "^0.10.18",
+    "glob": "^6.0.4",
+    "gulp": "~3.9.0",
+    "lodash": "3.10.1",
+    "minimist": "^1.1.3",
+    "mkdirp": "^0.5.1",
+    "node-html-encoder": "0.0.2",
+    "q": "1.4.1",
+    "semver": "^5.0.1",
+    "typescript": "^1.7.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --module commonjs --sourcemap --outDir dist/ --experimentalDecorators -d typings/es6-shim/es6-shim.d.ts src/index.ts --target ES5",
+    "build_bundle": "npm run-script build && browserify dist/index.js > dist/ionic.native.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/driftyco/ionic-native.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/driftyco/ionic-native/issues"
+  },
+  "homepage": "https://github.com/driftyco/ionic-native",
+  "typings": "./dist/index.d.ts",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "gitHead": "7fa66abf722267a85bd9e88a6e54d20d749c8c26",
+  "_id": "ionic-native@1.1.1",
+  "_shasum": "53b7fa03147fd147a0160eb1b9200f68c1dba2f1",
+  "_from": "ionic-native@>=1.1.0 <2.0.0",
+  "_npmVersion": "2.15.2",
+  "_nodeVersion": "5.7.0",
+  "_npmUser": {
+    "name": "tlancina",
+    "email": "tim@ionic.io"
+  },
+  "dist": {
+    "shasum": "53b7fa03147fd147a0160eb1b9200f68c1dba2f1",
+    "tarball": "https://registry.npmjs.org/ionic-native/-/ionic-native-1.1.1.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "ionic",
+      "email": "hi@ionicframework.com"
+    },
+    {
+      "name": "tlancina",
+      "email": "tim@ionic.io"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/ionic-native-1.1.1.tgz_1460152464389_0.05262988340109587"
+  },
+  "_resolved": "https://registry.npmjs.org/ionic-native/-/ionic-native-1.1.1.tgz",
+  "readme": "ERROR: No README data found!"
+}

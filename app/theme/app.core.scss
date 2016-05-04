@@ -1,0 +1,30 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Shared Imports
+// --------------------------------------------------
+// These are the various page imports which make up this app.
+// By default each design mode includes these shared imports.
+// App Shared Sass variables belong in app.variables.scss.
+// App Mixins
+// --------------------------------------------------
+// Shared Sass mixins go in the app.mixins.scss file
+@import 'app.mixins';
+
+@import "../pages/login/login";
+
+@import "../pages/feed/feed";
+
+@import "../pages/topic-feed/topic-feed";
+
+
+ion-list .item-inner {
+  border-bottom:0;
+}
+
+ion-card.post-card {
+  width:100%;
+  margin:10px 0;
+  box-shadow:none;
+  border-bottom:1px solid #CECECE;
+}

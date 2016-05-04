@@ -1,0 +1,16 @@
+<ion-navbar *navbar>
+  <ion-title>Feed</ion-title>
+</ion-navbar>
+
+
+<!-- Feed -->
+<ion-content class="main-feed">
+  <ion-list>
+    <ion-card class="post-card" *ngFor="#post of posts">
+
+      <!-- Post Added -->
+      <post-added [post]="post"></post-added>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

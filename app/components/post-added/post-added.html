@@ -1,0 +1,43 @@
+<!--
+  Generated template for the PostAdded component.
+
+  See https://angular.io/docs/ts/latest/api/core/ComponentMetadata-class.html
+  for more info on Angular 2 Components.
+-->
+<div class="post-added">
+  <div class="post-type">
+    <span class="topic-btn" tappable (click)="goToFeedTopic(post)">
+      <div class="topic-img" style="background:url('img/clash_royale.jpg') no-repeat;"></div>
+      <span class="post-type-text-block">
+        Clash Royale&middot;
+        <span class="post-type-text">Post added</span> &middot;
+        <time-ago></time-ago>
+      </span>
+    </span>
+  </div>
+  <ion-card-header tappable>
+    <span [innerHtml]="title"></span>
+  </ion-card-header>
+
+  <ion-item class="mini-user-profile">
+    <ion-avatar item-left>
+      <img src="img/mark.jpeg">
+    </ion-avatar>
+    <h2>{{post.userName}}</h2>
+  </ion-item>
+
+  <ion-card-content>
+  <p [innerHtml]="post.summary"></p>
+  </ion-card-content>
+
+  <ion-item class="action-buttons">
+    <button primary clear item-left>
+      <ion-icon name="thumbs-up"></ion-icon>
+      <div>{{post.upvote}} Upvotes</div>
+    </button>
+    <button [hidden]="post.commentCount === 0" primary clear item-left>
+      <ion-icon name="text"></ion-icon>
+      <div>{{post.commentCount}} Comments</div>
+    </button>
+  </ion-item>
+</div>

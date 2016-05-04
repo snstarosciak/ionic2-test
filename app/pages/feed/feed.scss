@@ -1,0 +1,146 @@
+$categories: (
+ ionic: color($colors, primary),
+ angular: #AC282B,
+ communication: #8E8D93,
+ tooling: #FE4C52,
+ services: #FD8B2D,
+ design: #FED035,
+ workshop: #69BB7B,
+ food: #3BC7C4,
+ documentation: #B16BE3,
+ navigation: #6600CC,
+);
+
+@function auxiliary-categories() {
+  @return map-remove($categories);
+}
+
+.schedule {
+  @each $track, $value in auxiliary-categories() {
+   ion-item-sliding[track=#{$track}] ion-label {
+     border-left: 2px solid $value;
+     padding-left: 10px;
+   }
+  }
+}
+
+// Related to https://github.com/driftyco/ionic/issues/5055
+.ios .hide-border .toolbar-background {
+  border-bottom-color: transparent;
+}
+
+/**
+ * Global styles
+ */
+.main-feed {
+  background:#EEEEEE !important;
+}
+
+.post-card {
+
+  ion-card-header {
+    cursor:pointer;
+    font-weight:bold;
+    color:color($colors, secondary);
+  }
+
+  .mini-user-profile {
+    height:25px;
+    margin-bottom:10px;
+  }
+
+  .feed-topic-header {
+    height:100px;
+    width:100%;
+    position:relative;
+    background:color($colors, primary);
+
+    .image {
+      width:80px;
+      height:80px;
+      position:absolute;
+      left:50%;
+      border:3px solid #FFF;
+      border-radius:3px;
+      box-shadow:0 2px 3px #333;
+      top:10px;
+      z-index:1;
+      @include transform(translateX(-50%));
+      background-size:cover !important; background-position:top center !important
+    }
+  }
+
+  .post-type {
+    border-bottom:1px solid #EAEAEA;
+    padding:10px 15px;
+    font-size:12px;
+    color:color($colors, soften);
+
+    .topic-img {
+      width:25px;
+      height:25px;
+      float:left;
+      display:inline-block;
+      background-size:cover !important;
+      border-radius:15px;
+      margin-right:5px;
+    }
+
+    .post-type-text {
+      padding:1px 5px;
+      border-radius:2px;
+      background:#f1f1f1;
+      color:#888;
+    }
+
+    .topic-btn {
+      line-height:25px;
+    }
+  }
+
+  .mini-user-profile {
+    .item-inner {
+        border:0;
+    }
+
+    h2 {
+      font-weight:bold;
+      font-size:14px;
+      color:color($colors, secondary);
+    }
+  }
+
+  .action-buttons {
+    background:#f9f9f9;
+    border-top:1px solid #f1f1f1;
+
+    button {
+      color:#777;
+    }
+  }
+}
+
+.card-background-page {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+}

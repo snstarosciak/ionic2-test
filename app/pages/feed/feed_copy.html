@@ -1,0 +1,64 @@
+<ion-navbar *navbar class="hide-border">
+
+  <ion-segment [(ngModel)]="segment" (change)="updateContentFilter()">
+    <ion-segment-button value="all">
+      Feed
+    </ion-segment-button>
+    <ion-segment-button value="favorites">
+      Trending
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-buttons end>
+    <button (click)="presentFilter()">
+      <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-navbar>
+
+<ion-toolbar>
+  <ion-searchbar primary
+                 [(ngModel)]="queryText"
+                 (input)="updateSchedule()"
+                 placeholder="Search">
+  </ion-searchbar>
+</ion-toolbar>
+
+<ion-content class="schedule">
+  <ion-list [hidden]="shownSessions === 0">
+
+    <ion-item-group *ngFor="#group of groups" [hidden]="group.hide">
+
+      <ion-item-divider sticky>
+        {{group.time}}
+      </ion-item-divider>
+
+      <ion-item-sliding tappable *ngFor="#session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
+
+        <button tappable ion-item (click)="goToSessionDetail(session)">
+          <h3>The Session is: {{session.name}}</h3>
+          <p>
+            {{session.timeStart}} &mdash;
+            {{session.timeEnd}}:
+            {{session.location}}
+          </p>
+        </button>
+
+        <ion-item-options>
+          <button favorite (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
+            Favorite
+          </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+    </ion-item-group>
+
+  </ion-list>
+
+  <ion-list-header [hidden]="shownSessions > 0">
+      No Sessions Found
+  </ion-list-header>
+
+
+</ion-content>
